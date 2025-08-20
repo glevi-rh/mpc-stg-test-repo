@@ -620,6 +620,10 @@ spec:
           - $(params.build-platforms)
       name: dummy-platform-check-1
       params:
+      - name: pipelinerun-name
+        value: $(context.pipelineRun.name)
+      - name: git-url
+        value: $(params.git-url)
       - name: image-url
         value: $(tasks.build-image-index.results.IMAGE_URL)
       - name: image-digest
@@ -647,6 +651,10 @@ spec:
           - $(params.build-platforms)
       name: dummy-platform-check-2
       params:
+      - name: pipelinerun-name
+        value: $(context.pipelineRun.name)
+      - name: git-url
+        value: $(params.git-url)
       - name: image-url
         value: $(tasks.build-image-index.results.IMAGE_URL)
       runAfter:
@@ -667,6 +675,10 @@ spec:
           - $(params.build-platforms)
       name: dummy-platform-validate
       params:
+      - name: pipelinerun-name
+        value: $(context.pipelineRun.name)
+      - name: git-url
+        value: $(params.git-url)
       - name: image-url
         value: $(tasks.build-image-index.results.IMAGE_URL)
       - name: image-digest
@@ -694,6 +706,10 @@ spec:
           - $(params.build-platforms)
       name: dummy-platform-summary
       params:
+      - name: pipelinerun-name
+        value: $(context.pipelineRun.name)
+      - name: git-url
+        value: $(params.git-url)
       - name: image-url
         value: $(tasks.build-image-index.results.IMAGE_URL)
       runAfter:
