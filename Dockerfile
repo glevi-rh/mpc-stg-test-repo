@@ -19,7 +19,7 @@ RUN go build -a -o main main.go
 # Use ubi-minimal as minimal base image to package the manager binary
 # For more details and updates, refer to
 # https://catalog.redhat.com/software/containers/ubi9/ubi-minimal/615bd9b4075b022acc111bf5
-FROM registry.access.redhat.com/ubi9/ubi-minimal:9.4
+FROM registry.access.redhat.com/ubi9/ubi-minimal:9.6-1755695350
 COPY --from=builder /opt/app-root/src/main /
 USER 65532:65532
 
