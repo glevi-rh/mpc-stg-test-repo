@@ -12,7 +12,10 @@ RUN go mod download
 
 # Copy the go source
 COPY main.go main.go
-# Run
+
+# Copy license
+COPY licenses/ /licenses/
+
 # Build
 RUN go build -a -o main main.go
 
