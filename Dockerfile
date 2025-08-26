@@ -13,9 +13,8 @@ RUN go mod download
 # Copy the go source
 COPY main.go main.go
 
-# Copy license
-COPY licenses/ /licenses/
-
+# NOTE: The licenses are NOT copied here because they are not needed for the build.
+# They will be copied into the final, smaller image instead.
 # Build
 RUN go build -a -o main main.go
 
@@ -23,7 +22,14 @@ RUN go build -a -o main main.go
 # For more details and updates, refer to
 # https://catalog.redhat.com/software/containers/ubi9/ubi-minimal/615bd9b4075b022acc111bf5
 FROM registry.access.redhat.com/ubi9/ubi-minimal:9.6-1755695350
+
+# Copy the built binary from the builder stage
 COPY --from=builder /opt/app-root/src/main /
+
+# Now, copy the licenses into the final image
+# This ensures they are present in the certified image
+COPY licenses/ /licenses/
+
 USER 65532:65532
 
 ENTRYPOINT ["/main"]
