@@ -2,7 +2,7 @@
 
 # --- Stage 1: The Builder Stage ---
 # We use the Red Hat Go toolset image to build our application binary.
-FROM registry.access.redhat.com/ubi9/go-toolset:1.24.6-1755529097 AS builder
+FROM registry.access.redhat.com/ubi9/go-toolset:1.24.6-1756913080 AS builder
 
 # Set the working directory for the source code.
 WORKDIR /opt/app-root/src
